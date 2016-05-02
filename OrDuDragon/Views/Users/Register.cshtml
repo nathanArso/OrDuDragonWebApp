@@ -1,7 +1,7 @@
 ﻿@model OrDuDragon.Models.UserViewModel
 
 @{
-    ViewBag.Title = "Connexion";
+    ViewBag.Title = "Register";
 }
 <!DOCTYPE html>
 <html>
@@ -14,22 +14,21 @@
     @Scripts.Render("~/bundles/modernizr")
     <style>
         .center {
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
-
     </style>
 </head>
 <body>
     <div class="container center" ­>
-        <h1>Connexion</h1>
-        <hr />
-        @using (Html.BeginForm())
+        <h1>Créer un compte</h1>
+        @using (Html.BeginForm("Register", "User", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
         {
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
+                <hr />
                 @Html.ValidationSummary(true)
 
                 <div class="form-group">
@@ -41,20 +40,45 @@
                 </div>
 
                 <div class="form-group">
+                    @Html.LabelFor(model => model.FirstName, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                        @Html.ValidationMessageFor(model => model.FirstName)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LastName, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                        @Html.ValidationMessageFor(model => model.LastName)
+                    </div>
+                </div>
+
+                <div class="form-group">
                     @Html.LabelFor(model => model.Password, new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
                         @Html.ValidationMessageFor(model => model.Password)
                     </div>
                 </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ConfirmPassword, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                        @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                    </div>
+                </div>
+
                 <div class="form-group" id="no-margin">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Connexion" class="btn btn-primary" />
+                        <input type="submit" value="s'enregistrer" class="btn btn-primary" />
                     </div>
                 </div>
                 <div class="form-group col-md-offset-2">
                     <div class="col-md-offset-2 col-md-10">
-                        @Html.ActionLink("Créer un compte", "Register")
+                        @Html.ActionLink("Connexion", "Login")
                     </div>
                 </div>
             </div>
@@ -65,5 +89,3 @@
     @Scripts.Render("~/bundles/bootstrap")
 </body>
 </html>
-
-
