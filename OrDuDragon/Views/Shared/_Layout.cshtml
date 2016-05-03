@@ -10,7 +10,7 @@
     <style>
         #sidebar {
             z-index: 1;
-            position: absolute;
+            position: fixed;
             width: 0;
             height: 100%;
             overflow-y: hidden;
@@ -18,9 +18,11 @@
         }
 
         #content {
+            color:white;
+            height:100%;
+            background-color:#2a333c;
             width: 100%;
             position: absolute;
-            padding: 15px;
         }
         @@media screen and (min-width: 720px)
         {
@@ -78,7 +80,7 @@
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+        <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -102,15 +104,15 @@
         <div id="sidebar">
             <ul class="sidebar-nav">
                 <li>
-                    <a href="#">
+                    <a href="@Url.Action("Index", "Home")">
                         <span class="logo glyphicon glyphicon-question-sign" aria-hidden="true"></span>
-                        <p class="big">Question</p>
+                        <p class="big">Accuil</p>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="@Url.Action("GameData", "Users")">
                         <span class="logo glyphicon glyphicon-question-sign" aria-hidden="true"></span>
-                        <span class="big">Question</span>
+                        <span class="big">Game data</span>
                     </a>
                 </li>
                 <li>
@@ -124,7 +126,6 @@
         <div id="content">
             <div class="container-fluid">
                 @RenderBody()
-                <hr />
                 <footer>
                     <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
                 </footer>

@@ -29,9 +29,8 @@ namespace OrDuDragon.Controllers
             return View();
         }
 
-        public ActionResult Dashboard()
+        public ActionResult GameData()
         {
-            Session["User"] = 1;
             return View();
         }
     }

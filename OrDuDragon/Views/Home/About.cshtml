@@ -1,7 +1,31 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+<h2>À propos</h2>
+<div>
+    <h3>Auttentification de base</h3>
+    <p>
+        Ce site  a été construit dans le cadre de notre cours
+        de développement d'application Web client serveur.  Il existe simplement dans le but de
+        démontrer que nous avons bien compris certainne notion présenté dans le cour
+    </p>
+    <h3>Voici les notions aquises</h3>
+    <ol>
+        <li>Comprendre le modèle MVC 5 dans un contexte multi-usager</li>
+        <li>Comprendre et appliquer l’authentification à une application Web</li>
+        <li>Gérer et utiliser les bibliothèques clientes (jQuery, bootstrap, etc.)</li>
+        <li>Utilisation de requête AJAX dans une page web</li>
+        <li>Utilisation d’horloge pour effectuer des rafraichissements partiels et périodiques</li>
+        <li>Utilisation d’une base de données SQL Express local à l’application via la dll SQLExpressUtilities (fournie avec cet énoncé)</li>
+        <li>Implanter un service qui reçoit une requête paramétré et qui retourne un résultat en JSON</li>
+        <li>Utilisation de la balise html 5 « canvas » pour tracer des graphiques statistiques</li>
+        <li>Tenir compte des droits d’usager pour l’accès à une action d’un contrôleur</li>
+    </ol>
+
+    <p>
+        <br />
+        <a href="@Url.Action("Contact", "Home")" class="btn btn-primary btn-lg">Nous contacter &raquo;</a>
+    </p>
+
+</div>
