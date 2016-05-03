@@ -154,6 +154,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AuthorisationRequired.cs" />
     <Compile Include="Models\Questions.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -207,6 +208,7 @@
     <Content Include="Views\Users\Register.cshtml" />
     <Content Include="Views\Users\GameData.cshtml" />
     <Content Include="Views\Questions\Index.cshtml" />
+    <Content Include="Views\Users\PermissionInvalide.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,4 +1,5 @@
-﻿using OrDuDragon.Models;
+﻿using Autentification.Controllers;
+using OrDuDragon.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,8 @@ namespace OrDuDragon.Controllers
             Session["User"] = 1;
             return RedirectToAction("Index", "Home");
         }
+
+        [AuthorisationRequired]
         public ActionResult LogOut()
         {
             Session["User"] = null;
@@ -29,6 +32,7 @@ namespace OrDuDragon.Controllers
             return View();
         }
 
+        [AuthorisationRequired]
         public ActionResult GameData()
         {
             return View();

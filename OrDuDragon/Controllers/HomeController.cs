@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Autentification.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,11 +9,13 @@ namespace OrDuDragon.Controllers
 {
     public class HomeController : Controller
     {
+        [AuthorisationRequired]
         public ActionResult Index()
         {
             return View();
         }
 
+        [AuthorisationRequired]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -20,6 +23,7 @@ namespace OrDuDragon.Controllers
             return View();
         }
 
+        [AuthorisationRequired]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
