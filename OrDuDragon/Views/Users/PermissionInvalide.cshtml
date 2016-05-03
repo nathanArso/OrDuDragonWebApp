@@ -1,7 +1,37 @@
-﻿
-@{
-    ViewBag.Title = "PermissionInvalide";
-}
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mon application ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        body {
+            background-color:#2a333c;
+            color:white;
+        }
 
-<h2>PermissionInvalide</h2>
 
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <h2>Acces refusé</h2>
+        <p>
+            Malheureusement vous n'avez pas la permission de venir sur cette page, vous n'êtes
+            connecté.  Si vous désirer devenir un utilisateur vous avez toujours la
+            possibilliter de vous inscrir.
+        </p>
+
+        <button class="btn btn-primary" onclick="location.href='@Url.Action("Register", "Users")'">Nous contacter  &raquo;</button>
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+</body>
+</html>

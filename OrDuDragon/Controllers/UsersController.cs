@@ -10,6 +10,11 @@ namespace OrDuDragon.Controllers
 {
     public class UsersController : Controller
     {
+        public ActionResult PermissionInvalide()
+        {
+            return View();
+        }
+
         public ActionResult LogIn()
         {
             return View();
