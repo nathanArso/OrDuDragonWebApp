@@ -166,6 +166,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Image\auberge.png" />
     <Content Include="Image\castle.png" />
     <Content Include="Image\doritos.png" />
     <Content Include="Image\gold.png" />
