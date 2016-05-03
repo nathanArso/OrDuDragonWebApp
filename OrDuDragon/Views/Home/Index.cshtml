@@ -14,7 +14,7 @@
         text-align:center;
         opacity:inherit;
     }
-    button {
+    input {
         background-color:transparent;
         border:5px solid white;
         color:white;
@@ -26,6 +26,6 @@
 <div class="jumbotron">
     <div class="container">
         <h1>L'or du dragon</h1>
-        <button>En savoir plus</button>
+        <input type="button" value="En savoir plus" onclick="location.href='@Url.Action("About", "Home")'" />
     </div>
 </div>

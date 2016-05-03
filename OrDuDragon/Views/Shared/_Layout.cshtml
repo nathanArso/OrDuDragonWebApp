@@ -75,7 +75,9 @@
         .sidebar-nav li a:hover {
             background-color:dodgerblue;
         }
-
+        footer p{
+            text-align:center;
+        }
     </style>
 </head>
 <body>
@@ -105,18 +107,18 @@
             <ul class="sidebar-nav">
                 <li>
                     <a href="@Url.Action("Index", "Home")">
-                        <span class="logo glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                        <span class="logo glyphicon glyphicon-home" aria-hidden="true"></span>
                         <p class="big">Accuil</p>
                     </a>
                 </li>
                 <li>
                     <a href="@Url.Action("GameData", "Users")">
-                        <span class="logo glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                        <span class="logo glyphicon glyphicon-info-sign" aria-hidden="true"></span>
                         <span class="big">Game data</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="@Url.Action("Index", "Questions")">
                         <span class="logo glyphicon glyphicon-question-sign" aria-hidden="true"></span>
                         <span class="big">Question</span>
                     </a>
@@ -126,10 +128,10 @@
         <div id="content">
             <div class="container-fluid">
                 @RenderBody()
-                <footer>
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-                </footer>
             </div>
+            <footer class="container">
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
         </div>
     </div>
 
