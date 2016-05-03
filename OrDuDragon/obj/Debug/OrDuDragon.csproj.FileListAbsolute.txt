@@ -118,3 +118,4 @@ C:\Users\arso\Desktop\TP final\OrDuDragonWebApp\OrDuDragon\bin\fr\System.Web.Web
 C:\Users\arso\Desktop\TP final\OrDuDragonWebApp\OrDuDragon\obj\Debug\OrDuDragon.csprojResolveAssemblyReference.cache
 C:\Users\arso\Desktop\TP final\OrDuDragonWebApp\OrDuDragon\obj\Debug\OrDuDragon.dll
 C:\Users\arso\Desktop\TP final\OrDuDragonWebApp\OrDuDragon\obj\Debug\OrDuDragon.pdb
+C:\Users\201446671\Desktop\OrDuDragonWebApp\OrDuDragon\bin\Oracle.DataAccess.dll

@@ -1,4 +1,5 @@
 ﻿using Autentification.Controllers;
+using Oracle.DataAccess.Client;
 using OrDuDragon.Models;
 using System;
 using System.Collections.Generic;
@@ -22,8 +23,13 @@ namespace OrDuDragon.Controllers
         [HttpPost]
         public ActionResult LogIn(UserViewModel user)
         {
-            Session["User"] = 1;
-            return RedirectToAction("Index", "Home");
+            User userConnected = new User(user);
+            if (userConnected.OpenConnexion())
+            {
+                Session["User"] = userConnected;
+                return RedirectToAction("Index", "Home");
+            }
+            return View();
         }
 
         [AuthorisationRequired]
@@ -31,10 +37,6 @@ namespace OrDuDragon.Controllers
         {
             Session["User"] = null;
             return RedirectToAction("LogIn", "Users");
-        }
-        public ActionResult Register()
-        {
-            return View();
         }
 
         [AuthorisationRequired]

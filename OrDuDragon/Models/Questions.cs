@@ -15,7 +15,7 @@ namespace OrDuDragon.Models
         public string Reponce3 { get; set; }
         public string Reponce4 { get; set; }
 
-        public int BonneReponce { get; set; }
+        public bool BonneReponce { get; set; }
         public int Dificulter { get; set; }
     }
 
