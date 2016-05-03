@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OrDuDragon.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,13 +9,29 @@ namespace OrDuDragon.Controllers
 {
     public class UsersController : Controller
     {
-        // GET: Users
         public ActionResult LogIn()
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult LogIn(UserViewModel user)
+        {
+            Session["User"] = 1;
+            return RedirectToAction("Index", "Home");
+        }
+        public ActionResult LogOut()
+        {
+            Session["User"] = null;
+            return RedirectToAction("LogIn", "Users");
+        }
         public ActionResult Register()
         {
+            return View();
+        }
+
+        public ActionResult Dashboard()
+        {
+            Session["User"] = 1;
             return View();
         }
     }
