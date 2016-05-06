@@ -40,15 +40,19 @@ namespace OrDuDragon.Controllers
                 // Ajout de la question
                 OracleCommand oraclCommandAjoutQuestion = new OracleCommand("GESTIONQUESTION", user.connexion);
                 oraclCommandAjoutQuestion.CommandText = "GESTIONQUESTION.INSERTQUESTION";
-                oraclCommandAjoutQuestion.CommandType = CommandType.StoredProcedure;
+                oraclCommandAjoutQuestion.CommandType = CommandType.StoredProcedure;
+
                 OracleParameter orapamnumEnoncer = new OracleParameter("PENONCER", OracleDbType.Varchar2, 100);
                 orapamnumEnoncer.Direction = ParameterDirection.Input;
                 orapamnumEnoncer.Value = question.Enoncer;
-                oraclCommandAjoutQuestion.Parameters.Add(orapamnumEnoncer);
+                oraclCommandAjoutQuestion.Parameters.Add(orapamnumEnoncer);
+
                 OracleParameter orapamDificulter = new OracleParameter("PDIFFICULTER", OracleDbType.Int32);
                 orapamDificulter.Direction = ParameterDirection.Input;
                 orapamDificulter.Value = question.Dificulter;
-                oraclCommandAjoutQuestion.Parameters.Add(orapamDificulter);                oraclCommandAjoutQuestion.ExecuteNonQuery();
+                oraclCommandAjoutQuestion.Parameters.Add(orapamDificulter);
+
+                oraclCommandAjoutQuestion.ExecuteNonQuery();
 
                 // ########################################################################################################################################
 
