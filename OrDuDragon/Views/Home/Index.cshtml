@@ -2,25 +2,44 @@
     ViewBag.Title = "Home Page";
 }
 <style>
-.jumbotron {
-    position: relative;
-    background: #000 url("/Image/capture.png") center center;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    overflow: hidden;
-}
-    h1 {
-        text-align:center;
-        opacity:inherit;
+    .jumbotron {
+        position: relative;
+        background: #000 url("/Image/capture.png") center center;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        overflow: hidden;
     }
+
+    h1 {
+        text-align: center;
+        opacity: inherit;
+    }
+
     input {
-        background-color:transparent;
-        border:5px solid white;
-        color:white;
-        padding:10px;
-        display:block;
+        background-color: transparent;
+        border: 5px solid white;
+        color: white;
+        padding: 10px;
+        display: block;
         margin: 0 auto;
+    }
+
+    .feature {
+        height: 250px;
+        background-color: red;
+    }
+
+    .left {
+        background-color: red;
+    }
+
+    .middle {
+        background-color: blue;
+    }
+
+    .right {
+        background-color: red;
     }
 </style>
 <div class="jumbotron">
@@ -29,3 +48,19 @@
         <input type="button" value="En savoir plus" onclick="location.href='@Url.Action("About", "Home")'" />
     </div>
 </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 feature left">
+
+        </div>
+        <div class="col-md-4 feature middle">
+
+        </div>
+        <div class="col-md-4 feature right">
+
+        </div>
+    </div>
+</div>
+
+<br />
