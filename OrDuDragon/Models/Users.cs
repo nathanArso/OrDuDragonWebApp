@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -24,32 +25,57 @@ namespace OrDuDragon.Models
         [Display(Name = "Mot de passe")]
         public string Password { get; set; }
     }
+
     public class User
     {
-        private string connexionString;
-        public OracleConnection connexion;
+        public OracleConnection connexion = new OracleConnection();
+
+        private string usr;
+        private string passw;
         public User() { }
         public User(UserViewModel userViewModel)
         {
-           string dSource = "(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 205.237.244.251)"
-            + "(PORT = 1521)))(CONNECT_DATA =(SERVICE_NAME = orcl.clg.qc.ca)))";
-            connexionString += dSource + "User Id=ATTG; Password=GTTA"; 
+            usr = userViewModel.UserName;
+            passw = userViewModel.Password;
         }
-        public bool OpenConnexion()
+        public bool LogIn()
         {
             try
             {
-                connexion = new OracleConnection(connexionString);
+                string dSource = "(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 205.237.244.251)"
+                    + "(PORT = 1521)))(CONNECT_DATA =(SERVICE_NAME = orcl.clg.qc.ca)))";
+                string chaine = "Data Source =" + dSource + "; User Id =" + usr + ";Password =" + passw;
+                connexion.ConnectionString = chaine;
                 connexion.Open();
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception se)
             {
-                Debug.WriteLine(ex.ToString());
+                return false;
+            }
+        }
+
+        public void LogOut()
+        {
+            if (connexion.State == ConnectionState.Open)
+            {
+                connexion.Close();
+            }
+        }
+
+        public bool Add()
+        {
+            try
+            {
+
+
+
+
+                return true;
+            } catch (Exception e)
+            {
                 return false;
             }
         }
     }
-
-
 }

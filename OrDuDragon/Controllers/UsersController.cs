@@ -24,7 +24,7 @@ namespace OrDuDragon.Controllers
         public ActionResult LogIn(UserViewModel user)
         {
             User userConnected = new User(user);
-            if (userConnected.OpenConnexion())
+            if (userConnected.LogIn())
             {
                 Session["User"] = userConnected;
                 return RedirectToAction("Index", "Home");
@@ -35,6 +35,8 @@ namespace OrDuDragon.Controllers
         [AuthorisationRequired]
         public ActionResult LogOut()
         {
+            User userConnected = (User)Session["User"];
+            userConnected.LogOut();
             Session["User"] = null;
             return RedirectToAction("LogIn", "Users");
         }

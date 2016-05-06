@@ -17,6 +17,8 @@ namespace OrDuDragon.Models
 
         public bool BonneReponce { get; set; }
         public int Dificulter { get; set; }
+        public Question() { }
+
     }
 
     public class Questions
