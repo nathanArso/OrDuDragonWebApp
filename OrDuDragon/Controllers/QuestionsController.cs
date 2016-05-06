@@ -33,7 +33,45 @@ namespace OrDuDragon.Controllers
         {
             User user = (User)Session["User"];
 
-            return RedirectToAction("Index");
+            try
+            {
+                //   PROCEDURE INSERTQUESTION(PENONCER IN QUESTION.ENONCER%TYPE,PDIFFICULTER IN QUESTION.DIFFICULTER%TYPE);
+
+                // Ajout de la question
+                OracleCommand oraclCommandAjoutQuestion = new OracleCommand("GESTIONQUESTION", user.connexion);
+                oraclCommandAjoutQuestion.CommandText = "GESTIONQUESTION.INSERTQUESTION";
+                oraclCommandAjoutQuestion.CommandType = CommandType.StoredProcedure;
+                OracleParameter orapamnumEnoncer = new OracleParameter("PENONCER", OracleDbType.Varchar2, 100);
+                orapamnumEnoncer.Direction = ParameterDirection.Input;
+                orapamnumEnoncer.Value = question.Enoncer;
+                oraclCommandAjoutQuestion.Parameters.Add(orapamnumEnoncer);
+                OracleParameter orapamDificulter = new OracleParameter("PDIFFICULTER", OracleDbType.Int32);
+                orapamDificulter.Direction = ParameterDirection.Input;
+                orapamDificulter.Value = question.Dificulter;
+                oraclCommandAjoutQuestion.Parameters.Add(orapamDificulter);                oraclCommandAjoutQuestion.ExecuteNonQuery();
+
+                // ########################################################################################################################################
+
+                //  PROCEDURE INESRTREPONSE(PENONCER IN REPONSE.ENONCERREPONSE%TYPE,PBONNE IN REPONSE.ESTBONNE%TYPE,PNUMQUESTION IN REPONSE.NUMQUESTION%TYPE);
+
+                // Ajout des choix de réponce
+                OracleCommand oraclCommandAjoutReponce = new OracleCommand("GESTIONQUESTION", user.connexion);
+                oraclCommandAjoutReponce.CommandText = "GESTIONQUESTION.INESRTREPONSE";
+                oraclCommandAjoutReponce.CommandType = CommandType.StoredProcedure;
+
+                // Enoncer
+                oraclCommandAjoutReponce.Parameters.Add(orapamnumEnoncer);
+
+
+
+
+                oraclCommandAjoutReponce.ExecuteNonQuery();
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex) {
+                return RedirectToAction("Index");
+            }
         }
 
     }

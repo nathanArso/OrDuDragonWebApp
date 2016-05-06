@@ -63,19 +63,6 @@ namespace OrDuDragon.Models
             }
         }
 
-        public bool Add()
-        {
-            try
-            {
-
-
-
-
-                return true;
-            } catch (Exception e)
-            {
-                return false;
-            }
-        }
+     
     }
 }
